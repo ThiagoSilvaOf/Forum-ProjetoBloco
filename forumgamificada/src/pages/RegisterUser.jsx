@@ -4,6 +4,10 @@ import Form from "../components/Form";
 import { Link, useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import useAuth from "../hooks/useAuth";
+import toast, { toastConfig } from 'react-simple-toasts';
+import 'react-simple-toasts/dist/theme/success.css';
+
+
 
 const RegisterUser = () => {
   const { cadastrar } = useAuth();
@@ -25,7 +29,8 @@ const RegisterUser = () => {
       setError(res);
       return;
     }
-    alert("Usuário cadastrado com sucesso!");
+    toastConfig({ theme: 'success' });
+    toast("Usuário cadastrado com sucesso!");
     navigate("/login");
   };
 
