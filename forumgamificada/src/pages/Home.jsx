@@ -1,11 +1,10 @@
 import React from "react";
-import useAuth from "../hooks/useAuth";
-import { useNavigate } from "react-router-dom";
-import Button from "../components/Button";
+import Header from "./Header";
+import Card from "../components/Card";
+
 
 const Home = () => {
-  const { desconectar } = useAuth();
-  const navigate = useNavigate();
+ 
 
   const [publicacao, setPublicacao] = React.useState(null);
 
@@ -24,8 +23,8 @@ const Home = () => {
   
   return (
     <div>
-      <h2>HOME</h2>
-      <Button action={"Sair"} onClick={() => [desconectar(), navigate("/")]} />
+      <Header />
+      <Card publicacoes={publicacao} />
     </div>
   );
 };

@@ -1,0 +1,70 @@
+.cardsContainer {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cardContainer {
+  max-width: 460px;
+  margin: 0 auto;
+  padding: 22px;
+}
+
+.cardUser {
+  background-color: #00305f;
+  color: whitesmoke;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 6px 6px 0 0;
+}
+
+.cardUser h1 {
+  font-size: 20px;
+}
+
+.cardInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  background-color: whitesmoke;
+  padding: 12px;
+}
+
+.cardFeedback {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 6px;
+  gap: 22px;
+  padding: 12px;
+  background-color: whitesmoke;
+}
+
+.cardLike,
+.cardComment {
+  display: flex;
+  align-items: stretch;
+  gap: 6px;
+  background-color: #bbd2e7;
+  color: #00305f;
+  border-radius: 6px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.liked{
+  color: red;
+  animation: jump 0.5s ease-in-out 1;;
+}
+
+@keyframes jump {
+  0% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-20px);
+  }
+  100% {
+      transform: translateY(0);
+  }
+}

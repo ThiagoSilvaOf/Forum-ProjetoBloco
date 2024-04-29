@@ -1,0 +1,30 @@
+.boxHeader{
+  display: flex;
+  justify-content: space-between;
+  background-color: #00305f;
+  padding: 8px;
+  margin: 0 auto;
+}
+
+.logoHeader{
+  display: flex;
+  align-items: center;
+}
+
+.logoHeader p{
+  font-weight: bold;
+  color: whitesmoke;
+}
+
+.navHeader{
+  display: flex;
+  align-items: center;
+  margin: 16px;
+  gap: 16px;
+  color: whitesmoke;
+}
+
+.navHeader button{
+  cursor: pointer;
+  padding: 8px 18px;
+}

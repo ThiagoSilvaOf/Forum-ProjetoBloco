@@ -37,7 +37,7 @@ const RegisterUser = () => {
   return (
     <div className="loginBox">
       <div>
-        <img src="src\assets\logo1.png" alt="logo" title="Diálogos Diversos" />
+        <img src="src\assets\Forum-Logo.png" alt="logo" title="Diálogos Diversos" />
       </div>
 
       <div className="loginForm">
