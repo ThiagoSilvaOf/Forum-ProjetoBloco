@@ -6,7 +6,7 @@ import Card from "../components/Card";
 const Home = () => {
  
 
-  const [publicacao, setPublicacao] = React.useState(null);
+  const [publicacao, setPublicacao] = React.useState([]);
 
   const baseUrl =
     "https://dialogos-diversos-default-rtdb.asia-southeast1.firebasedatabase.app";

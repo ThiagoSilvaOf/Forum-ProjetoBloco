@@ -52,19 +52,81 @@
   cursor: pointer;
 }
 
-.liked{
-  color: red;
-  animation: jump 0.5s ease-in-out 1;;
+.cardComments {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  background-color: whitesmoke;
+  animation: slideDown 1s ease-in-out;
+  overflow: hidden;
+}
+
+.cardNone {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  animation: slideUp 0.5s ease-in-out;
+  visibility: hidden;
+}
+
+.cardComments span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.cardComments p {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+}
+
+.liked {
+  fill: red;
+  background: whitesmoke;
+  padding: 2px;
+  border-radius: 6px;
+  animation: jump 0.5s ease-in-out 1;
+}
+
+.activeComments {
+  fill: black;
+  background: whitesmoke;
+  padding: 2px;
+  border-radius: 6px;
+  animation: jump 0.5s ease-in-out 1;
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 1;
+    max-height: 1000px;
+  }
+  100% {
+    opacity: 0;
+    max-height: 0;
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    max-height: 0;
+  }
+  100% {
+    opacity: 1;
+    max-height: 1000px;
+  }
 }
 
 @keyframes jump {
   0% {
-      transform: translateY(0);
+    transform: translateY(0);
   }
   50% {
-      transform: translateY(-20px);
+    transform: translateY(-20px);
   }
   100% {
-      transform: translateY(0);
+    transform: translateY(0);
   }
 }
