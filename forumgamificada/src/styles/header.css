@@ -14,6 +14,7 @@
 .logoHeader p{
   font-weight: bold;
   color: whitesmoke;
+  max-width: 60px;
 }
 
 .navHeader{
@@ -24,7 +25,12 @@
   color: whitesmoke;
 }
 
+.navHeader p{
+  display: flex;
+  gap: 6px;
+}
+
 .navHeader button{
   cursor: pointer;
-  padding: 8px 18px;
+  padding: 6px 12px;
 }

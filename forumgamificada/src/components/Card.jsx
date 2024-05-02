@@ -1,17 +1,24 @@
 import React, { useMemo } from "react";
 import "../styles/card.css";
-import { FaRegUser } from "react-icons/fa";
+import { FaUserAlt } from "react-icons/fa";
 import { AiOutlineLike } from "react-icons/ai";
 import { FaUserMinus } from "react-icons/fa";
 import { GoComment } from "react-icons/go";
+import { BiSend } from "react-icons/bi";
+import Button from "./Button";
 
 const Card = ({ publicacoes }) => {
+  const userName = localStorage.getItem("userName");
+
   return (
     <section className="cardsContainer">
       {publicacoes.map((publicacao, index) => {
         const [likes, setLikes] = React.useState(publicacao.curtidas);
         const [hasLiked, setHasliked] = React.useState(false);
-        const [comments, setComments] =  React.useState(false);
+        const [comments, setComments] = React.useState(false);
+        const [userComment, setUserComment] = React.useState("");
+
+        console.log(userComment);
 
         const listaComentario = Object.values(publicacao.lista_comentarios);
 
@@ -25,14 +32,18 @@ const Card = ({ publicacoes }) => {
           }
         }
 
-        function handleComments(){
-          setComments(!comments)
+        function handleComments() {
+          setComments(!comments);
+        }
+
+        function handleSend(){
+          console.log("Enviou");
         }
 
         return (
           <div key={index} className="cardContainer">
             <div className="cardUser">
-              <FaRegUser />
+              <FaUserAlt />
               <h1>{publicacao.username}</h1>
             </div>
             <div className="cardInfo">
@@ -48,7 +59,7 @@ const Card = ({ publicacoes }) => {
 
               <div className="cardComment" onClick={handleComments}>
                 <GoComment className={comments ? "activeComments" : ""} />
-                <p>{publicacao.comentarios} Comentarios</p>
+                <p>{publicacao.comentarios} Comentários</p>
               </div>
             </div>
 
@@ -60,7 +71,17 @@ const Card = ({ publicacoes }) => {
                   </span>{" "}
                   {comentario}
                 </p>
+                
+              
               ))}
+              <div className="userComment">
+                <input
+                  type="text"
+                  placeholder="Adicionar comentário..."
+                  onChange={({target}) => setUserComment(target.value)}
+                ></input>
+                <Button action={<BiSend/>} onClick={handleSend} />
+              </div>
             </div>
           </div>
         );

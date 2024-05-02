@@ -4,21 +4,22 @@ import Form from "../components/Form";
 import { Link, useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import useAuth from "../hooks/useAuth";
-import toast, { toastConfig } from 'react-simple-toasts';
-import 'react-simple-toasts/dist/theme/success.css';
-
-
+import toast, { toastConfig } from "react-simple-toasts";
+import "react-simple-toasts/dist/theme/success.css";
 
 const RegisterUser = () => {
   const { cadastrar } = useAuth();
   const navigate = useNavigate();
 
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
+  console.log(name);
+
   const handleCadastro = () => {
-    if (!email | !password) {
+    if (!email | !password | !name) {
       setError("Preencha todos os campos");
       return;
     }
@@ -29,15 +30,21 @@ const RegisterUser = () => {
       setError(res);
       return;
     }
-    toastConfig({ theme: 'success' });
+    toastConfig({ theme: "success" });
     toast("Usuário cadastrado com sucesso!");
+    localStorage.setItem("userName", name);
+
     navigate("/login");
   };
 
   return (
     <div className="loginBox">
       <div>
-        <img src="src\assets\Forum-Logo.png" alt="logo" title="Diálogos Diversos" />
+        <img
+          src="src\assets\Forum-Logo.png"
+          alt="logo"
+          title="Diálogos Diversos"
+        />
       </div>
 
       <div className="loginForm">
@@ -46,7 +53,13 @@ const RegisterUser = () => {
         </div>
 
         <Form
-          nome={true}
+          value={name}
+          label={"Nome"}
+          type={"Text"}
+          onChange={(e) => [setName(e.target.value), setError("")]}
+        />
+
+        <Form
           value={email}
           label={"Email"}
           type={"Email"}
@@ -58,7 +71,6 @@ const RegisterUser = () => {
           label={"Senha"}
           type={"Password"}
           onChange={(e) => [setPassword(e.target.value), setError("")]}
-          termos={true}
         />
 
         <Button action={"Cadastre-se"} onClick={handleCadastro} />

@@ -5,8 +5,9 @@
 
 .cardContainer {
   max-width: 460px;
-  margin: 0 auto;
+  margin: 60px auto;
   padding: 22px;
+  box-shadow: 0.1px 0.1px 0.7px 0.1px #5f5f5f;
 }
 
 .cardUser {
@@ -95,6 +96,37 @@
   padding: 2px;
   border-radius: 6px;
   animation: jump 0.5s ease-in-out 1;
+}
+
+.userComment {
+  display: flex;
+  width: 100%;
+  margin-block: 12px;
+}
+
+.userComment input {
+  border: 1px solid #607d8b;
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  margin-inline: 16px;
+  cursor: pointer;
+}
+
+.userComment input:focus{
+  box-shadow: 0 0 0 3px #bbd2e7;
+  border-color:#00305f;
+  outline: none;
+}
+
+.userComment button {
+  cursor: pointer;
+  margin-right: 22px;
+  border-radius: 6px;
+  padding: 6px 12px;
+  background-color: #bbd2e7;
+  border: 1px solid #607D8B;
+  color: #00305f;
 }
 
 @keyframes slideUp {
