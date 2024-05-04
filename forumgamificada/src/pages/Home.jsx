@@ -16,7 +16,6 @@ const Home = () => {
       .then(async (resp) => {
       const respPublicao = await resp.json();
       const publicacoesConvertidas = Object.values(respPublicao);
-      console.log(publicacoesConvertidas);
       setPublicacao(publicacoesConvertidas);
     });
   }, []);

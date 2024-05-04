@@ -1,10 +1,11 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useRef } from "react";
 import "../styles/card.css";
 import { FaUserAlt } from "react-icons/fa";
 import { AiOutlineLike } from "react-icons/ai";
 import { FaUserMinus } from "react-icons/fa";
 import { GoComment } from "react-icons/go";
 import { BiSend } from "react-icons/bi";
+import toast, { toastConfig } from "react-simple-toasts";
 import Button from "./Button";
 
 const Card = ({ publicacoes }) => {
@@ -15,12 +16,14 @@ const Card = ({ publicacoes }) => {
       {publicacoes.map((publicacao, index) => {
         const [likes, setLikes] = React.useState(publicacao.curtidas);
         const [hasLiked, setHasliked] = React.useState(false);
-        const [comments, setComments] = React.useState(false);
+
+        const [openComments, setOpenComments] = React.useState(false);
         const [userComment, setUserComment] = React.useState("");
 
-        console.log(userComment);
-
         const listaComentario = Object.values(publicacao.lista_comentarios);
+        const [comments, setComments] = React.useState(listaComentario);
+
+        const inputRef = React.useRef();
 
         function handleClick() {
           if (!hasLiked) {
@@ -33,11 +36,20 @@ const Card = ({ publicacoes }) => {
         }
 
         function handleComments() {
-          setComments(!comments);
+          setOpenComments(!openComments);
         }
 
-        function handleSend(){
-          console.log("Enviou");
+        function handleSend() {
+          if (userComment) {
+            const newComment = { comentario: userComment, usuario: userName };
+            setComments([...comments, newComment]);
+            inputRef.current.value = "";
+            setUserComment("");
+            toastConfig({ theme: "success" });
+            toast("Comentário enviado com sucesso!");
+          }
+
+          console.log(comments);
         }
 
         return (
@@ -58,29 +70,28 @@ const Card = ({ publicacoes }) => {
               </div>
 
               <div className="cardComment" onClick={handleComments}>
-                <GoComment className={comments ? "activeComments" : ""} />
-                <p>{publicacao.comentarios} Comentários</p>
+                <GoComment className={openComments ? "activeComments" : ""} />
+                <p>{comments.length} Comentários</p>
               </div>
             </div>
 
-            <div className={comments ? "cardComments" : "cardNone"}>
-              {listaComentario.map(({ comentario, usuario }) => (
-                <p key={usuario}>
+            <div className={openComments ? "cardComments" : "cardNone"}>
+              {comments.map(({ comentario, usuario }, index) => (
+                <p key={index}>
                   <span>
                     <FaUserMinus /> <strong>{usuario}:</strong>
                   </span>{" "}
                   {comentario}
                 </p>
-                
-              
               ))}
               <div className="userComment">
                 <input
+                  ref={inputRef}
                   type="text"
                   placeholder="Adicionar comentário..."
-                  onChange={({target}) => setUserComment(target.value)}
+                  onChange={({ target }) => setUserComment(target.value)}
                 ></input>
-                <Button action={<BiSend/>} onClick={handleSend} />
+                <Button action={<BiSend />} onClick={handleSend} />
               </div>
             </div>
           </div>
