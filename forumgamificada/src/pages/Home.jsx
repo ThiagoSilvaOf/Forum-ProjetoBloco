@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "./Header";
 import Card from "../components/Card";
+import UserPublication from "./UserPublication";
 
 
 const Home = () => {
@@ -24,6 +25,7 @@ const Home = () => {
   return (
     <div>
       <Header />
+      <UserPublication />
       <Card publicacoes={publicacao} />
     </div>
   );
