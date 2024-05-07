@@ -20,7 +20,6 @@ const Home = () => {
       setPublicacao(publicacoesConvertidas);
     });
   }, []);
-
   
   return (
     <div>
