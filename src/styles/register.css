@@ -1,0 +1,92 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.loginBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #00305f;
+  min-height: 100vh;
+}
+
+.loginMessage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loginMessage p {
+  font-size: 18px;
+  padding-block: 16px;
+  text-align: center;
+}
+
+.loginForm {
+  display: grid;
+  gap: 16px;
+  background-color: ghostwhite;
+  padding: 22px;
+  border-radius: 6px;
+}
+
+.loginForm label {
+  font-weight: bold;
+}
+
+.loginForm input {
+  font-size: 20px;
+  background-color: transparent;
+  padding: 6px 12px;
+  border: none;
+  border-bottom: 1px solid black;
+}
+
+.loginForm input:focus {
+  border: none;
+  border-bottom: 1px solid black;
+  outline: none;
+}
+
+.termosCheckbox {
+  margin-top: 12px;
+}
+
+.termosCheckbox label {
+  margin-left: 8px;
+}
+
+.loginForm button {
+  text-transform: uppercase;
+  background-color: #55b551;
+  color: white;
+  cursor: pointer;
+  padding: 8px;
+  font-weight: bold;
+  border-radius: 6px;
+}
+
+.loginBox a{
+  text-decoration: none;
+  font-weight: bold;
+}
+
+@media (min-width: 726px) {
+  .loginForm {
+    max-width: 880px;
+    padding-inline: 60px;
+  }
+
+  .loginForm input {
+    padding: 12px 12px;
+  }
+
+  .loginForm button {
+    justify-self: end;
+    padding: 8px 18px;
+  }
+
+  .loginMessage p {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+}

@@ -1,0 +1,25 @@
+.navContainer {
+  margin: 60px auto;
+  max-width: 600px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 12px;
+  padding-inline: 8px;
+}
+
+.navContainer a{
+  display: flex;
+  gap: 4px;
+  text-align: center;
+  text-decoration: none;
+  padding: 12px;
+  border-radius: 6px;
+  background-color: whitesmoke;
+  color: #00305F;
+}
+
+.navContainer a.active{
+  background-color: #00305F;
+  color: whitesmoke;
+}

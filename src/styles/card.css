@@ -1,0 +1,164 @@
+.cardsContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  padding-inline: 6px;
+}
+
+.cardContainer {
+  max-width: 460px;
+  margin: 60px auto;
+  box-shadow: 0.1px 0.1px 0.7px 0.1px #5f5f5f;
+}
+
+.cardUser {
+  background-color: #00305f;
+  color: whitesmoke;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 6px 6px 0 0;
+}
+
+.cardUser h1 {
+  font-size: 20px;
+}
+
+.cardInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  background-color: whitesmoke;
+  padding: 12px;
+}
+
+.cardFeedback {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 6px;
+  gap: 22px;
+  padding: 12px;
+  background-color: whitesmoke;
+}
+
+.cardLike,
+.cardComment {
+  display: flex;
+  align-items: stretch;
+  gap: 6px;
+  background-color: #bbd2e7;
+  color: #00305f;
+  border-radius: 6px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.cardComments {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  background-color: whitesmoke;
+  animation: slideDown 1s ease-in-out;
+  overflow: hidden;
+}
+
+.cardNone {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  animation: slideUp 0.5s ease-in-out;
+  visibility: hidden;
+}
+
+.cardComments span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.cardComments p {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+}
+
+.liked {
+  fill: red;
+  background: whitesmoke;
+  padding: 2px;
+  border-radius: 6px;
+  animation: jump 0.5s ease-in-out 1;
+}
+
+.activeComments {
+  fill: black;
+  background: whitesmoke;
+  padding: 2px;
+  border-radius: 6px;
+  animation: jump 0.5s ease-in-out 1;
+}
+
+.userComment {
+  display: flex;
+  width: 100%;
+  margin-block: 12px;
+}
+
+.userComment input {
+  border: 1px solid #607d8b;
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  margin-inline: 16px;
+  cursor: pointer;
+}
+
+.userComment input:focus{
+  box-shadow: 0 0 0 3px #bbd2e7;
+  border-color:#00305f;
+  outline: none;
+}
+
+.userComment button {
+  cursor: pointer;
+  margin-right: 22px;
+  border-radius: 6px;
+  padding: 6px 12px;
+  background-color: #bbd2e7;
+  border: 1px solid #607D8B;
+  color: #00305f;
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 1;
+    max-height: 1000px;
+  }
+  100% {
+    opacity: 0;
+    max-height: 0;
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    max-height: 0;
+  }
+  100% {
+    opacity: 1;
+    max-height: 1000px;
+  }
+}
+
+@keyframes jump {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

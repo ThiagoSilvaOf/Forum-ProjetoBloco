@@ -1,0 +1,44 @@
+.bgHeader{
+  background-color: #00305f;
+}
+
+.boxHeader{
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  margin: 0 auto;
+  max-width: 860px;
+}
+
+.boxHeader a{
+  text-decoration: none;
+}
+
+.logoHeader{
+  display: flex;
+  align-items: center;
+}
+
+.logoHeader p{
+  font-weight: bold;
+  color: whitesmoke;
+  max-width: 60px;
+}
+
+.navHeader{
+  display: flex;
+  align-items: center;
+  margin: 16px;
+  gap: 16px;
+  color: whitesmoke;
+}
+
+.navHeader p{
+  display: flex;
+  gap: 6px;
+}
+
+.navHeader button{
+  cursor: pointer;
+  padding: 6px 12px;
+}
